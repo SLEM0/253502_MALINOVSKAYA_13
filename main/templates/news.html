@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Новости{% endblock title %}
+{% block header %}Новости{% endblock header %}
+{% block content %}
+{% for i in all_items %} 
+<h3>{{ i.title }}</h3>
+<img src="{{ i.image.url }}" alt="">
+<p>{{ i.content }}</p>
+{% endfor %}
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Отзывы{% endblock title %}
+{% block header %}Отзывы{% endblock header %}
+{% block content %}
+<a href="{% url 'add_review' %}">Добавить отзыв</a>
+{% for i in all_items %}
+    <h3>{{ i.user }}</h3>
+    <p>{{ i.rating }}</p>
+    <p>{{ i.text }}</p>
+    <p>{{ i.created_at }}</p>
+{% endfor %}
+{% endblock content %}

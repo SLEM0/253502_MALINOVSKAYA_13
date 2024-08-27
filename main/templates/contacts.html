@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Контакты{% endblock title %}
+{% block header %}Контакты{% endblock header %}
+{% block content %}
+{% for employee in employees %}
+    <div>
+          <img src="{{ employee.photo.url }}" alt="" style="height:200px;">
+          <h3>{{ employee.user.username }}</h3>
+          <p>{{ employee.job_description }}</p>
+          <p>Телефон: {{ employee.phone }}</p>
+          <p>Email: {{ employee.email }}</p>
+    </div>
+    {% endfor %}
+{% endblock content %}

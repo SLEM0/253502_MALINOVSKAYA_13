@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Добавить сотрудника{% endblock title %}
+{% block header %}Добавить сотрудника{% endblock header %}
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Зарегистрировать">
+</form>
+<a href="{% url 'login' %}">Вход</a>
+<a href="{% url 'home' %}">Главная</a>
+{% endblock content %}

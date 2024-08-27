@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Главная{% endblock title %}
+{% block header %}Вы зашли как {{ user.username|default:'Гость' }}{% endblock header %}
+{% block content %}
+    <a href="{% url 'index' %}">Погода</a>
+    {% if user.is_authenticated %}
+        {% if user.is_staff %}
+            <a href="{% url 'admin_orders' %}">Статистика</a>
+            <a href="{% url 'signup_employee' %}">Добавить сотрудника</a>
+            <a href="{% url 'category' %}">Категории CRUD</a>
+            <a href="{% url 'admin' %}">Админ панель</a>
+        {% else %}
+            <a href="{% url 'user_orders' %}">Заказы</a>
+        {% endif %}
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Выйти</button>
+        </form>
+    {% else %}
+        <a href="{% url 'signup' %}">Зарегистрироваться</a>
+        <a href="{% url 'login' %}">Войти</a>   
+    {% endif %}
+
+    <br><h3>{{ latest_news.title }}</h3>
+    <img src="{{ latest_news.image.url }}" alt="">
+    <p>{{ latest_news.content }}</p>
+
+    <form method="GET">
+        <select name="category">
+            <option value="">Любая категория</option>
+            {% for category in categories %}
+                <option value="{{ category.name }}">{{ category.name }}</option>
+            {% endfor %}
+        </select>
+        {% if request.GET.category %}
+            <p>Выбранная категория: {{ request.GET.category }}</p>
+        {% else %}
+            <p>Категория не выбрана</p>
+        {% endif %}
+        <input type="number" name="min_price" placeholder="Мин. стоимость" value="{{ request.GET.min_price }}">
+        <input type="number" name="max_price" placeholder="Макс. стоимость" value="{{ request.GET.max_price }}">
+        <button type="submit">Отфильтровать</button>
+    </form>
+    {% for i in all_items %} 
+    <h3>{{ i }}</h3>
+    <ul>
+        {% for owner in i.owners.all %}
+            <li>{{ owner }}</li>
+        {% endfor %}
+    </ul>
+    <p>{{ i.address }}</p>
+    <p>{{ i.price }}$</p>
+    <form method="post" action="{% url 'create_order' i.id %}">
+        {% csrf_token %}
+        <input type="text" name="promo_code" placeholder="Промокод">
+        <button type="submit">Заказать</button>
+    </form>
+    {% endfor %}
+{% endblock content %}

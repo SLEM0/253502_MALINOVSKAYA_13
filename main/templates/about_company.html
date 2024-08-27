@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}О компании{% endblock title %}
+{% block header %}О компании{% endblock header %}
+{% block content %}
+{% for i in all_items %}
+    <p>{{ i.content }}</p>
+{% endfor %}
+{% endblock content %}

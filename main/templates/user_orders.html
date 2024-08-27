@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Мои заказы{% endblock title %}
+{% block header %}Мои заказы{% endblock header %}
+{% block content %}
+<h3>У вас {{len_ord}} заказов</h3>
+{% for order in orders %}
+    <li>{{ order.real_estate }} - {{ order.date }}</li>
+{% endfor %}
+{% endblock content %}

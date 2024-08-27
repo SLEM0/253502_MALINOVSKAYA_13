@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Категории{% endblock title %}
+{% block header %}Категории{% endblock header %}
+{% block content %}
+<form method="POST" action="create/">
+    {% csrf_token %}
+    <p>
+        <label>Введите название категории</label><br>
+        <input type="text" name="name" />
+    </p>
+    <input type="submit" value="Сохранить" >
+</form>
+{% if category.count > 0 %}
+<h2>Список категорий</h2>
+<table>
+    {% for c in category %}
+    <tr>
+        <td>{{ c.name }}</td>
+        <td><a href="edit/{{c.id}}">Изменить</a> | <a href="delete/{{c.id}}">Удалить</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% endblock content %}

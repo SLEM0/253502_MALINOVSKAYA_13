@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Вакансии{% endblock title %}
+{% block header %}Вакансии{% endblock header %}
+{% block content %}
+{% for i in all_items %} 
+    <h3>{{ i.title }}</h3>
+    <p>{{ i.description }}</p>
+{% endfor %}
+{% endblock content %}

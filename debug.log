@@ -1,0 +1,86 @@
+INFO 2024-08-27 16:52:38,577 views Rendering home view
+ERROR 2024-08-27 16:52:38,586 views An error occurred while rendering the home view
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 502, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\User\OneDrive\Desktop\real_estate_agency\main\views.py", line 41, in homeView
+    return render(request, 'home.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 504, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\base.py", line 555, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 45: 'static', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2024-08-27 16:52:38,589 log Internal Server Error: /
+INFO 2024-08-27 16:54:54,344 views Rendering home view
+INFO 2024-08-27 17:10:30,372 views Rendering home view
+INFO 2024-08-27 17:10:34,843 views Rendering home view
+INFO 2024-08-27 17:14:04,046 views Rendering home view
+INFO 2024-08-27 17:19:49,887 autoreload Watching for file changes with StatReloader
+DEBUG 2024-08-27 17:19:50,342 __init__ matplotlib data path: C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\matplotlib\mpl-data
+DEBUG 2024-08-27 17:19:50,347 __init__ CONFIGDIR=C:\Users\User\.matplotlib
+DEBUG 2024-08-27 17:19:50,349 __init__ interactive is False
+DEBUG 2024-08-27 17:19:50,349 __init__ platform is win32
+DEBUG 2024-08-27 17:19:50,422 __init__ CACHEDIR=C:\Users\User\.matplotlib
+DEBUG 2024-08-27 17:19:50,425 font_manager Using fontManager instance from C:\Users\User\.matplotlib\fontlist-v330.json
+INFO 2024-08-27 17:20:05,810 views Rendering home view
+INFO 2024-08-27 17:20:41,736 autoreload C:\Users\User\OneDrive\Desktop\real_estate_agency\main\views.py changed, reloading.
+INFO 2024-08-27 17:20:42,828 autoreload Watching for file changes with StatReloader
+DEBUG 2024-08-27 17:20:43,359 __init__ matplotlib data path: C:\Users\User\AppData\Local\Programs\Python\Python312\Lib\site-packages\matplotlib\mpl-data
+DEBUG 2024-08-27 17:20:43,367 __init__ CONFIGDIR=C:\Users\User\.matplotlib
+DEBUG 2024-08-27 17:20:43,370 __init__ interactive is False
+DEBUG 2024-08-27 17:20:43,370 __init__ platform is win32
+DEBUG 2024-08-27 17:20:43,455 __init__ CACHEDIR=C:\Users\User\.matplotlib
+DEBUG 2024-08-27 17:20:43,460 font_manager Using fontManager instance from C:\Users\User\.matplotlib\fontlist-v330.json

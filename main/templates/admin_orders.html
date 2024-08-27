@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Статистика{% endblock title %}
+{% block header %}Статистика{% endblock header %}
+{% block content %}
+<h2>Продажи</h2>
+<p>Сумма: {{total_sales}}$</p>
+<p>Среднее: {{average_sales}}$</p>
+<p>Мода: {{sales_mode}}$</p>
+<p>Медиана: {{sales_median}}$</p>
+{% for order in orders %}
+    <li>{{ order.real_estate }};&nbsp;&nbsp;&nbsp;&nbsp;Клиент: {{ order.user }};&nbsp;&nbsp;&nbsp;&nbsp;Сумма заказа: {{ order.real_estate.price }}$</li>
+{% endfor %}
+<br>
+<h2>Клиенты</h2>
+<p>Средний возраст: {{average_ages}} лет</p>
+<p>Медиана: {{ages_median}} лет</p>
+{% for client in clients %}
+    <li>{{ client }};&nbsp;&nbsp;&nbsp;&nbsp;Дата рождения: {{ client.date_of_birth }}</li>
+{% endfor %}
+<br>
+<h2>Сортировка категорий</h2>
+<h3>По популярности</h3>
+<table>
+    {% for key, value in popular_dict %}
+        <tr>
+            <td>{{key}}</td>
+            <td>
+                - {{value}}
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+<img src="{{image1}}" alt="Sales Distribution Chart">
+<h3>По приносимой прибыли</h3>
+<table>
+    {% for key, value in price_dict %}
+        <tr>
+            <td>{{key}}</td>
+            <td>
+                - {{value}} $
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+<img src="{{image2}}" alt="Sales Distribution Chart">
+{% endblock content %}

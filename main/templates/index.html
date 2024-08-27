@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Погода{% endblock title %}
+{% block header %}{% endblock header %}
+{% block content %}
+<h1>{{quote}}</h1>
+<h1>Погода</h1>
+    <div class="alert alert-danger">
+        Погода в Минске <br>
+        Температура: {{ info.temp }}<sup>0</sup> <br>
+        <img src="http://openweathermap.org/img/wn/{{ info.icon }}@2x.png" alt="фото" class="img-thumbnail">
+<h1>Календарь</h1>
+<p>Сегодня: {{ d }}</p>
+<p>{{ html_out|safe }}</p>
+<h4>Current time: {{date|date:"d/m/Y"}} ({{timezone}})</h4>
+{% endblock content %}
